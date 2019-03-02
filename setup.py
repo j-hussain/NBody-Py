@@ -9,18 +9,18 @@ requires = [
 ]
 
 packages = [
-    "ScrapyDoo"
+    "DeepDeck"
 ]
 
 setuptools.setup(
-    name="ScrapyDoo",
+    name="DeepDecks",
     version="0.0.1",
     author="Jabir Hussain",
     author_email="jabirhussain@protonmail.ch",
-    description="A web scraping tool designed for a command line",
+    description="DeepDeck is a Q-learning based neural network, learning to play BlackJack",
     long_description=docs,
     long_description_content_type="text/markdown",
-    url="https://github.com/pr0tege/ScrapyDoo",
+    url="https://github.com/pr0tege/DeepDecks",
     packages=packages,
     install_requires=requires
 )
