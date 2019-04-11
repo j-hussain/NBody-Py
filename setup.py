@@ -4,20 +4,20 @@ with open("README.md","r") as f:
     docs = f.read()
 
 requires = [
-    "requests>=2.19.1",
-    "bs4>=4.6.3" #BS4 module for BeautifulSoup
+    "pygame=>1.9.3",
+    "numpy=>1.14.0"
 ]
 
 packages = [
-    "DeepDeck"
+    "N-body"
 ]
 
 setuptools.setup(
-    name="DeepDecks",
+    name="N-Body",
     version="0.0.1",
     author="Jabir Hussain",
     author_email="jabirhussain@protonmail.ch",
-    description="DeepDeck is a Q-learning based neural network, learning to play BlackJack",
+    description="A python implementation for the N-body problem",
     long_description=docs,
     long_description_content_type="text/markdown",
     url="https://github.com/pr0tege/DeepDecks",
