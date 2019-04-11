@@ -20,7 +20,7 @@ setuptools.setup(
     description="A python implementation for the N-body problem",
     long_description=docs,
     long_description_content_type="text/markdown",
-    url="https://github.com/pr0tege/DeepDecks",
+    url="https://github.com/pr0tege/project",
     packages=packages,
     install_requires=requires
 )
