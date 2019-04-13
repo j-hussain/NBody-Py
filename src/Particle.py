@@ -9,7 +9,7 @@ class Particle:
 
         """
 
-
+        need to add docstrings
 
         """
 
