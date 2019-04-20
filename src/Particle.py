@@ -57,7 +57,7 @@ class Particle:
 
     @staticmethod
     def _contact(p1, p2):
-        dr = p1-p2
+        dr = p1._position -p2._position
         dsq = (dr[0]**2 + dr[1]**2)
         print(dsq)
         magnitude = sqrt(dsq)
@@ -70,3 +70,31 @@ class Particle:
             (p1._velocity[1] * p1._mass + p2._velocity[1] * p2._mass) / (p1._mass + p2._mass)
         ])
 
+    def _update(self, particles):
+        # Update the positions and speeds of the particles
+        for p1 in particles:
+            if p1._merged:
+                continue
+            p1._resetAcceleration()
+            for p2 in particles:
+                if p1 is p2 or p2._merged:
+                    continue
+                p1._updateAcceleration(p2)
+            p1._updatePosition()
+
+        # Conservation of total momentum; merge the particles that touch
+        # using elastic collisions
+        for p1 in particles:
+            if p1._merged:
+                continue
+            for p2 in particles:
+                if p1 is p2 or p2._merged:
+                    continue
+                if Particle._contact(p1, p2):
+                    if p1._mass < p2._mass:
+                        p1, p2 = p2, p1
+                    p2._merged = True
+
+                    p1._mass += p2._mass
+                    p1._setRadius()
+                    p1._newVelocity(p1, p2)
